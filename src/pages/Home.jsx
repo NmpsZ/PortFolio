@@ -19,7 +19,7 @@ const workItem = [
     category: "Line-Chatbot & Admin-Dashboard",
     year: ["2025", "2026"],
     description: `Developed a LINE Chatbot integrated with an Admin Dashboard for managing medical equipment. The chatbot allows users to report repairs, check equipment status, and search for devices. Python-based OCR is used to scan serial numbers and equipment labels for quick identification. The Admin Dashboard provides tools for managing equipment records, viewing support tickets, and monitoring statistics.`,
-    tech: ["React", "Golang", "Python", "TailwindCSS", "PostgreSQL"]
+    tech: ["React", "Golang", "Python", "Typescript", "TailwindCSS", "PostgreSQL"]
   },
   {
     id: 2,
