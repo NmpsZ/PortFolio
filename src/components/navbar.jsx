@@ -62,11 +62,47 @@
 import { useState } from "react";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
 
+const smoothScrollTo = (e, targetId) => {
+  e.preventDefault();
+  const target = document.getElementById(targetId);
+  if (!target) return;
+
+  const navbarHeight = 80; // offset for sticky navbar
+  const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+  const startPosition = window.pageYOffset;
+  const distance = targetPosition - startPosition;
+  const duration = 1200; // 1.2 seconds, slower and smoother
+
+  let start = null;
+
+  const easeInOutCubic = (t, b, c, d) => {
+    t /= d / 2;
+    if (t < 1) return (c / 2) * t * t * t + b;
+    t -= 2;
+    return (c / 2) * (t * t * t + 2) + b;
+  };
+
+  const animation = (currentTime) => {
+    if (start === null) start = currentTime;
+    const timeElapsed = currentTime - start;
+    const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+    window.scrollTo(0, run);
+    if (timeElapsed < duration) {
+      requestAnimationFrame(animation);
+    } else {
+      window.scrollTo(0, targetPosition);
+    }
+  };
+
+  requestAnimationFrame(animation);
+};
+
 function Navbar({ darkMode, setDarkMode }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav
+      className="sticky top-0 z-50"
       style={{
         backgroundColor: darkMode ? "#121212" : "#fff",
         color: darkMode ? "#eee" : "#000",
@@ -93,23 +129,41 @@ function Navbar({ darkMode, setDarkMode }) {
         </div>
 
         {/* Desktop Menu + ปุ่ม toggle */}
-        <div className="hidden md:flex items-center gap-8 lg:me-22">
+        <div className="hidden md:flex items-center gap-8">
+          <a
+            href="#about"
+            onClick={(e) => smoothScrollTo(e, 'about')}
+            className="hover:text-blue-600 font-bold"
+            style={{ color: darkMode ? "#eee" : undefined }}
+          >
+            About Me
+          </a>
+          {/* <a
+            href="#skills"
+            onClick={(e) => smoothScrollTo(e, 'skills')}
+            className="hover:text-blue-600 font-bold"
+            style={{ color: darkMode ? "#eee" : undefined }}
+          >
+            Tech Stack
+          </a> */}
           <a
             href="#works"
+            onClick={(e) => smoothScrollTo(e, 'works')}
             className="hover:text-blue-600 font-bold"
             style={{ color: darkMode ? "#eee" : undefined }}
           >
             Works
           </a>
-          <a
+          {/* <a
             href="#blog"
             className="hover:text-blue-600 font-bold"
             style={{ color: darkMode ? "#eee" : undefined }}
           >
             Blog
-          </a>
+          </a> */}
           <a
             href="#contact"
+            onClick={(e) => smoothScrollTo(e, 'contact')}
             className="hover:text-blue-600 font-bold"
             style={{ color: darkMode ? "#eee" : undefined }}
           >
@@ -168,13 +222,47 @@ function Navbar({ darkMode, setDarkMode }) {
           className="md:hidden px-4 pb-4 flex flex-col gap-4"
           style={{ color: darkMode ? "#eee" : "#000" }}
         >
-          <a href="#works" className="hover:text-blue-600">
+          <a
+            href="#about"
+            onClick={(e) => {
+              smoothScrollTo(e, 'about');
+              setIsOpen(false);
+            }}
+            className="hover:text-blue-600"
+          >
+            About Me
+          </a>
+          {/* <a
+            href="#skills"
+            onClick={(e) => {
+              smoothScrollTo(e, 'skills');
+              setIsOpen(false);
+            }}
+            className="hover:text-blue-600"
+          >
+            Tech Stack
+          </a> */}
+          <a
+            href="#works"
+            onClick={(e) => {
+              smoothScrollTo(e, 'works');
+              setIsOpen(false);
+            }}
+            className="hover:text-blue-600"
+          >
             Works
           </a>
-          <a href="#blog" className="hover:text-blue-600">
+          {/* <a href="#blog" className="hover:text-blue-600">
             Blog
-          </a>
-          <a href="#contact" className="hover:text-blue-600">
+          </a> */}
+          <a
+            href="#contact"
+            onClick={(e) => {
+              smoothScrollTo(e, 'contact');
+              setIsOpen(false);
+            }}
+            className="hover:text-blue-600"
+          >
             Contact
           </a>
         </div>

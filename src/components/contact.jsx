@@ -2,7 +2,7 @@ import { FaFacebook, FaInstagram, FaGithub } from 'react-icons/fa';
 
 function Contact() {
   return (
-    <div className="flex justify-center space-x-6 mt-4 text-2xl">
+    <div id="contact" className="flex justify-center space-x-6 mt-4 text-2xl">
       <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
         <FaFacebook />
       </a>
