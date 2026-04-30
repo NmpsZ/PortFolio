@@ -12,9 +12,9 @@ const workItem = [
     title: "Senior Project Medical Equipment LineChatBot & Admin Web",
     containIndices: [0],
     img: [
-      "/src/assets/pic/line1.png",
-      "/src/assets/pic/line2.png",
-      "/src/assets/pic/line3.png",
+      "/pic/line1.png",
+      "/pic/line2.png",
+      "/pic/line3.png",
     ],
     category: "Line-Chatbot & Admin-Dashboard",
     year: ["2025", "2026"],
@@ -25,10 +25,10 @@ const workItem = [
     id: 2,
     title: "Web Game Shop 2048",
     img: [
-      "/src/assets/pic/game1.png",
-      "/src/assets/pic/game2.png",
-      "/src/assets/pic/game3.png",
-      "/src/assets/pic/game4.png"
+      "/pic/game1.png",
+      "/pic/game2.png",
+      "/pic/game3.png",
+      "/pic/game4.png"
     ],
     category: "Web-Game",
     year: "2025",
@@ -40,9 +40,9 @@ const workItem = [
     title: "Mobile Shop Shoes",
     containIndices: [0, 1, 2],
     img: [
-      "/src/assets/pic/shoes1.png",
-      "/src/assets/pic/shoes2.png",
-      "/src/assets/pic/shoes3.png",
+      "/pic/shoes1.png",
+      "/pic/shoes2.png",
+      "/pic/shoes3.png",
     ],
     category: "Mobile App",
     year: "2025",
@@ -53,7 +53,7 @@ const workItem = [
     id: 4,
     title: "Blog Post",
     img: [
-      "/src/assets/pic/blog.png",
+      "/pic/blog.png",
     ],
     category: "Blog",
     year: "2025",
@@ -64,7 +64,7 @@ const workItem = [
     id: 5,
     title: "MegaMart",
     img: [
-      "/src/assets/pic/shop.png",
+      "/pic/shop.png",
     ],
     category: "Landing-page",
     year: "2025",

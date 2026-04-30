@@ -18,7 +18,7 @@ function About({ darkMode }) {
       <div className="md:w-1/2 flex justify-center">
         <img
           className="rounded-full w-56 h-56 md:w-72 md:h-72 object-cover shadow-lg"
-          src="/src/assets/pic/me.jpg"
+          src="/pic/me.jpg"
           alt="Profile"
         />
       </div>
