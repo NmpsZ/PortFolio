@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaVuejs, FaReact, FaChevronDown, FaNodeJs, FaPython } from "react-icons/fa";
 import { IoFilterOutline } from "react-icons/io5";
-import { SiGoland, SiTailwindcss, SiFlutter, SiPostgresql, SiFirebase } from "react-icons/si";
+import { SiGoland, SiTailwindcss, SiFlutter, SiPostgresql, SiFirebase, SiTypescript } from "react-icons/si";
 import ImageCarousel from "./ImageCarousel";
 
 function Works({ works, darkMode }) {
@@ -106,7 +106,8 @@ function Works({ works, darkMode }) {
                   "Flutter": { color: "#02569B", icon: <SiFlutter /> },
                   "PostgreSQL": { color: "#4169E1", icon: <SiPostgresql /> },
                   "Firebase": { color: "#FFCA28", icon: <SiFirebase /> },
-                  "Python": { color: "#3776AB", icon: <FaPython /> }
+                  "Python": { color: "#3776AB", icon: <FaPython /> },
+                  "Typescript": { color: "#3178C6", icon: <SiTypescript /> }
                 };
 
                 return (
