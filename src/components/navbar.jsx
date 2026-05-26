@@ -147,6 +147,30 @@ function Navbar({ darkMode, setDarkMode }) {
             Tech Stack
           </a> */}
           <a
+            href="#education"
+            onClick={(e) => smoothScrollTo(e, 'education')}
+            className="hover:text-blue-600 font-bold"
+            style={{ color: darkMode ? "#eee" : undefined }}
+          >
+            Education
+          </a>
+          <a
+            href="#internship"
+            onClick={(e) => smoothScrollTo(e, 'internship')}
+            className="hover:text-blue-600 font-bold"
+            style={{ color: darkMode ? "#eee" : undefined }}
+          >
+            Internship
+          </a>
+          <a
+            href="#soft-skills"
+            onClick={(e) => smoothScrollTo(e, 'soft-skills')}
+            className="hover:text-blue-600 font-bold"
+            style={{ color: darkMode ? "#eee" : undefined }}
+          >
+            Soft Skills
+          </a>
+          <a
             href="#works"
             onClick={(e) => smoothScrollTo(e, 'works')}
             className="hover:text-blue-600 font-bold"
@@ -242,6 +266,36 @@ function Navbar({ darkMode, setDarkMode }) {
           >
             Tech Stack
           </a> */}
+          <a
+            href="#education"
+            onClick={(e) => {
+              smoothScrollTo(e, 'education');
+              setIsOpen(false);
+            }}
+            className="hover:text-blue-600"
+          >
+            Education
+          </a>
+          <a
+            href="#internship"
+            onClick={(e) => {
+              smoothScrollTo(e, 'internship');
+              setIsOpen(false);
+            }}
+            className="hover:text-blue-600"
+          >
+            Internship
+          </a>
+          <a
+            href="#soft-skills"
+            onClick={(e) => {
+              smoothScrollTo(e, 'soft-skills');
+              setIsOpen(false);
+            }}
+            className="hover:text-blue-600"
+          >
+            Soft Skills
+          </a>
           <a
             href="#works"
             onClick={(e) => {

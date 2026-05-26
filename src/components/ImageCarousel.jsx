@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 
-function ImageCarousel({ images, alt, darkMode, containIndices = [] }) {
+function ImageCarousel({ images, alt, darkMode, containIndices = [], size = "default" }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-  const [direction, setDirection] = useState("next"); // "next" | "prev"
 
   const totalImages = images.length;
 
@@ -12,7 +11,6 @@ function ImageCarousel({ images, alt, darkMode, containIndices = [] }) {
     if (totalImages <= 1 || isHovered) return;
 
     const interval = setInterval(() => {
-      setDirection("next");
       setCurrentIndex((prev) => (prev + 1) % totalImages);
     }, 4000);
 
@@ -20,25 +18,23 @@ function ImageCarousel({ images, alt, darkMode, containIndices = [] }) {
   }, [totalImages, isHovered]);
 
   const goToNext = useCallback(() => {
-    setDirection("next");
     setCurrentIndex((prev) => (prev + 1) % totalImages);
   }, [totalImages]);
 
   const goToPrev = useCallback(() => {
-    setDirection("prev");
     setCurrentIndex((prev) => (prev - 1 + totalImages) % totalImages);
   }, [totalImages]);
 
   const goToSlide = useCallback((index) => {
-    setDirection(index > currentIndex ? "next" : "prev");
     setCurrentIndex(index);
-  }, [currentIndex]);
+  }, []);
 
   // Only one image — no carousel needed
   if (totalImages <= 1) {
-    const isContain = containIndices?.includes(0);
+    const isLarge = size === "large";
+    const isContain = true;
     return (
-      <div className="carousel-container bg-black overflow-hidden relative rounded-xl">
+      <div className={`carousel-container ${size === "large" ? "carousel-container-large" : ""} bg-black overflow-hidden relative rounded-xl`}>
         {isContain && (
           <img
             src={images[0]}
@@ -61,14 +57,15 @@ function ImageCarousel({ images, alt, darkMode, containIndices = [] }) {
 
   return (
     <div
-      className="carousel-container"
+      className={`carousel-container ${size === "large" ? "carousel-container-large" : ""}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Image wrapper */}
       <div className="carousel-viewport bg-black rounded-xl overflow-hidden relative">
         {images.map((img, index) => {
-          const isContain = containIndices?.includes(index);
+          const isLarge = size === "large";
+          const isContain = true;
           const isActive = index === currentIndex;
 
           return (

@@ -9,11 +9,27 @@ function About({ darkMode }) {
           My name is Siraphop Chootong (Cadcam). I am a recent graduate in Computer Science, currently seeking opportunities to gain work experience and further develop my skills. I am eager to grow and build my potential for a future career.
           I enjoy working with others and strongly believe in the value of teamwork.
         </p>
-        <button className="mt-6 px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
-          <a href="https://drive.google.com/uc?export=download&id=1bdfTNf2fJ64V0dEJmPsYPPIeS4Jej_MY" target="_blank" rel="noopener noreferrer" download className="block">
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a
+            href="https://drive.google.com/uc?export=download&id=1bdfTNf2fJ64V0dEJmPsYPPIeS4Jej_MY"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+            className="inline-flex justify-center rounded bg-blue-600 px-5 py-2 font-semibold text-white transition hover:bg-blue-700"
+          >
             Download Resume
           </a>
-        </button>
+          <a
+            href="https://drive.google.com/uc?export=download&id=1FdpsYtczKLIut3Wwwzs7Uj_T4SHbErsD"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+            className={`inline-flex justify-center rounded border px-5 py-2 font-semibold transition ${darkMode ? "border-blue-400/60 text-blue-200 hover:bg-blue-400/10" : "border-blue-600 text-blue-700 hover:bg-blue-50"
+              }`}
+          >
+            Download Transcript
+          </a>
+        </div>
       </div>
       <div className="md:w-1/2 flex justify-center">
         <img
