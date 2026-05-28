@@ -11,7 +11,7 @@ function About({ darkMode }) {
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
           <a
-            href="https://drive.google.com/uc?export=download&id=1bdfTNf2fJ64V0dEJmPsYPPIeS4Jej_MY"
+            href="https://drive.google.com/uc?export=download&id=1vY7GBvGla4Zjy0CDJm3ZKO8LnFQLwbqr"
             target="_blank"
             rel="noopener noreferrer"
             download
