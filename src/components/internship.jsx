@@ -6,9 +6,9 @@ function Internship({ darkMode }) {
       period: "APR. 2025 - OCT. 2025",
       duration: "6 Month",
       items: [
-        "Developed the Customer Master Data (CMD) web application using Vue.js (Frontend) and Golang (Backend).",
-        "Implemented Apache Kafka for high-performance data streaming and integration with SAP to synchronize master data.",
-        "Developed comprehensive unit tests for backend services in Golang to ensure code reliability, maintainability, and system stability.",
+        "Built a full-stack CMD platform centralizing customer data from SAP and internal systems, using Vue.js and Golang.",
+        "Built a Kafka-based pipeline and cron jobs to sync data with SAP, and exposed REST APIs for the frontend",
+        "Wrote unit tests across frontend and backend, maintaining over 80% code coverage.",
       ],
     },
     {
@@ -17,9 +17,9 @@ function Internship({ darkMode }) {
       period: "NOV. 2025 - MAR. 2026",
       duration: "5 Month",
       items: [
-        "Developed the Legal Management System frontend using React to create a responsive and user-friendly interface.",
-        "Engineered robust backend APIs and business logic using C# .NET to support legal workflow automation.",
-        "Collaborated on system design and database management to ensure scalability and performance of the legal platform.",
+        "Developed Legal One, a centralized contract and tax management platform, using React.js and C# .NET Core 8 with PostgreSQL.",
+        "Built RESTful APIs powering SLA tracking, a performance dashboard, notifications, and activity logs.",
+        "Fixed critical workflow bugs while building new frontend features and API integrations.",
       ],
     },
   ];
@@ -40,11 +40,10 @@ function Internship({ darkMode }) {
           {experiences.map((experience) => (
             <article
               key={`${experience.role}-${experience.period}`}
-              className={`rounded-lg border p-5 transition-all hover:-translate-y-1 hover:shadow-md ${
-                darkMode
-                  ? "border-gray-700 bg-[#222222] hover:bg-[#2b2b2b]"
-                  : "border-gray-200 bg-gray-50 hover:bg-white"
-              }`}
+              className={`rounded-lg border p-5 transition-all hover:-translate-y-1 hover:shadow-md ${darkMode
+                ? "border-gray-700 bg-[#222222] hover:bg-[#2b2b2b]"
+                : "border-gray-200 bg-gray-50 hover:bg-white"
+                }`}
             >
               <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
                 <div>

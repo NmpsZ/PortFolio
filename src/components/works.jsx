@@ -135,7 +135,11 @@ function Works({ works, darkMode }) {
           <div className="md:flex-1">
             <h3 className="text-xl font-bold lg:text-2xl">{work.title}</h3>
             <ProjectMeta work={work} darkMode={darkMode} />
-            <p className={`leading-relaxed ${darkMode ? "text-gray-300" : "text-gray-700"}`}>{work.description}</p>
+            <p className={`mb-4 leading-relaxed ${darkMode ? "text-gray-300" : "text-gray-700"}`}>
+              {Array.isArray(work.description) 
+                ? work.description.map(text => text.replace(/^(Overview|Features|Challenges & Solutions):\s*/, '')).join(" ") 
+                : work.description}
+            </p>
             <TechPills tech={work.tech} techMap={techMap} />
 
             <div className="mt-5 flex flex-wrap gap-3">
@@ -147,7 +151,7 @@ function Works({ works, darkMode }) {
                 <IoOpenOutline className="h-4 w-4" />
               </button>
 
-              {work.link && (
+              {/* {work.link && (
                 <a
                   href={work.link}
                   target="_blank"
@@ -160,7 +164,7 @@ function Works({ works, darkMode }) {
                   Live Demo
                   <IoOpenOutline className="h-4 w-4" />
                 </a>
-              )}
+              )} */}
             </div>
           </div>
         </article>
@@ -214,9 +218,17 @@ function Works({ works, darkMode }) {
               <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
                 <div>
                   <h3 className="mb-3 text-lg font-bold md:text-xl">Project overview</h3>
-                  <p className={`max-w-3xl text-base leading-7 ${darkMode ? "text-gray-300" : "text-gray-700"}`}>
-                    {selectedWork.description}
-                  </p>
+                  {Array.isArray(selectedWork.description) ? (
+                    <ul className={`list-disc pl-5 max-w-3xl text-base leading-7 space-y-2 ${darkMode ? "text-gray-300" : "text-gray-700"}`}>
+                      {selectedWork.description.map((point, index) => (
+                        <li key={index}>{point}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className={`max-w-3xl text-base leading-7 ${darkMode ? "text-gray-300" : "text-gray-700"}`}>
+                      {selectedWork.description}
+                    </p>
+                  )}
                 </div>
 
                 <aside className={`rounded-xl border p-5 ${darkMode ? "border-white/10 bg-white/5" : "border-gray-200 bg-white"
@@ -225,7 +237,7 @@ function Works({ works, darkMode }) {
                   <TechPills tech={selectedWork.tech} techMap={techMap} />
 
                   <div className="flex flex-col gap-3 mt-5">
-                    {selectedWork.link && (
+                    {/* {selectedWork.link && (
                       <a
                         href={selectedWork.link}
                         target="_blank"
@@ -235,7 +247,7 @@ function Works({ works, darkMode }) {
                         <IoOpenOutline className="h-5 w-5" />
                         Live Demo
                       </a>
-                    )}
+                    )} */}
 
                     {githubLinks(selectedWork.github).length > 0 ? (
                       githubLinks(selectedWork.github).map((link) => (
